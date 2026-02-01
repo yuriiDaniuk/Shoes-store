@@ -1,5 +1,7 @@
 import { Heart, Star, ShoppingCart, MessageSquare } from 'lucide-react';
 import type { IProduct } from "../../types/index";
+import { useAppDispatch } from '../../store/hooks';
+import { addToCart } from '../../store/slices/cartSlice';
 
 interface ProductCardProps {
     product: IProduct;
@@ -9,6 +11,12 @@ export function ProductCard({ product }: ProductCardProps) {
     // Mock data for demonstration
     const oldPrice = (product.price * 1.3).toFixed(2);
     const discount = "-30%";
+
+    const dispatch = useAppDispatch();
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(product));
+    };
 
     return (
         // --- MAIN CARD CONTAINER ---
@@ -83,7 +91,7 @@ export function ProductCard({ product }: ProductCardProps) {
                     {/* Negative margins (-mr-2 -mb-4) pull the button to the very corner */}
                     <button 
                         className="w-15 flex items-center justify-center bg-[#ccff00] hover:bg-[#d2fc18] hover:cursor-pointer transition-colors ml-2 -mr-2 -mb-4"
-                        onClick={() => console.log('Buy:', product.id)}
+                        onClick={handleAddToCart}
                     >
                         <ShoppingCart className="w-6 h-6 text-black" strokeWidth={1} />
                     </button>

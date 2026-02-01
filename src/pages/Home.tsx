@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { ProductCard } from "../components/ui/ProductCard";
 import type { IProduct } from "../types/index";
@@ -36,7 +36,7 @@ export function Home(){
     }, []);
 
     return (
-    <div className="flex flex-col justify-center items-center w-full mt-10 text-3xl font-bold">
+    <div className="flex flex-col items-center justify-center w-full mt-10 text-3xl font-bold">
     
         <ProductCard product={testProduct}></ProductCard>
 
