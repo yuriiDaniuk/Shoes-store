@@ -1,9 +1,26 @@
-import { useAppSelector } from '../store/hooks';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { TrashIcon, Minus, Plus } from 'lucide-react';
+import { changeQuantity, deleteFromCart } from '../store/slices/cartSlice';
+
+interface ChangeQuantityPayload {
+    id: number;
+    type: 'increase' | 'decrease';
+}
+
 
 export function CartPage() {
 
     const { items, totalPrice } = useAppSelector((state) => state.cart);
+
+    const dispatch = useAppDispatch();
+
+    const handleChangeQuantity = (payload: ChangeQuantityPayload) => {
+        dispatch(changeQuantity(payload));
+    }
+
+    const handleDeleteFromCart = (id: number) => {
+        dispatch(deleteFromCart(id));
+    }
 
     if (items.length === 0){
         return(
@@ -34,7 +51,10 @@ export function CartPage() {
                             <span className=' text-gray-500 text-lg pl-1'>{item.description}</span>
 
                             <div className='flex items-center justify-baseline gap-1 group py-2'>
-                                <button className='flex group-hover:cursor-pointer'>
+                                <button 
+                                    className='flex group-hover:cursor-pointer'
+                                    onClick={() => handleDeleteFromCart(item.id)}
+                                >
                                     <TrashIcon className='h-5 w-5 text-gray-300'/>
                                     <div className='text-gray-300'>delete</div>
                                 </button>
@@ -42,11 +62,17 @@ export function CartPage() {
 
                             <div className='flex items-center justify-between w-full mt-2'>
                                 <div className='h-10 w-24 bg-gray-100 ml-0 flex items-center justify-center'>
-                                    <button className='px-1 py-1 cursor-pointer'>
+                                    <button 
+                                        className='px-1 py-1 cursor-pointer'
+                                        onClick={() => handleChangeQuantity({id: item.id, type: 'decrease'})}
+                                    >
                                         <Minus className=' text-gray-500 w-6 h-6'/>
                                     </button>
                                     <span className='px-2 py-1 text-gray-500 text-lg'>{item.quantity}</span>
-                                    <button className='px-1 py-1 cursor-pointer'>
+                                    <button 
+                                        className='px-1 py-1 cursor-pointer'
+                                        onClick={() => handleChangeQuantity({id: item.id, type: 'increase'})}
+                                    >
                                         <Plus className=' text-gray-500 w-6 h-6'/>
                                     </button>
                                 </div>
