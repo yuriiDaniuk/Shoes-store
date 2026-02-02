@@ -9,9 +9,9 @@ export function Home(){
         id: 1,
         title: "Nike air force 1",
         price: 99.99,
-        description: "A classic sneaker",
+        description: "A classic sneaker for walkers and runners.",
         category: "shoes",
-        image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTljCwHj83JbTNRDKF7hEJ77tDwyugNptn0CaH0vUS-GuN8x3EiDUVRn7QJ4iqZR7yQtPnMTRRuJXkldZ4e15MJxi6GULfBv_iSZJrC5ydcaHo9Mu1arKR4mqH9L5KhAQ&usqp=CAc",
+        image: "https://deltasport.ua/storage/product/size_976/9120/IM6029-084-639833.jpg",
         rating: {
             rate: 4.5,
             count: 120

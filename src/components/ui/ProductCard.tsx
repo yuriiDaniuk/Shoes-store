@@ -20,7 +20,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
     return (
         // --- MAIN CARD CONTAINER ---
-        <div className="flex flex-col h-full bg-white">
+        <div className="flex flex-col h-120 w-70 bg-white">
 
             {/* --- TOP SECTION: IMAGE & WISHLIST --- */}
             <div className="relative mb-3 overflow-hidden">
