@@ -1,33 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { ProductCard } from "../components/ui/ProductCard";
 import type { IProduct } from "../types/index";
 
 export function Home(){
 
-    const testProduct: IProduct = {
-        id: 1,
-        title: "Nike air force 1",
-        price: 99.99,
-        description: "A classic sneaker for walkers and runners.",
-        category: "shoes",
-        image: "https://deltasport.ua/storage/product/size_976/9120/IM6029-084-639833.jpg",
-        rating: {
-            rate: 4.5,
-            count: 120
-        }
-    } 
+    const [ products, setProduct ] = useState<IProduct[]>([]);
+
+    const [ loading, setLoading ] = useState<boolean>(true);
 
     useEffect(() => {
 
         async function fetchProducts() {
             try {
-                console.log("Fetching data...");
                 const response = await axios.get('https://fakestoreapi.com/products');
-                console.log("Data fetched:", response.data);
+                
+                setProduct(response.data);
+                setLoading(false);
             }
             catch (error){
                 console.error("Error fetching data:", error);
+                setLoading(false);
             }
         };
         
@@ -35,11 +28,24 @@ export function Home(){
 
     }, []);
 
-    return (
-    <div className="flex flex-col items-center justify-center w-full mt-10 text-3xl font-bold">
-    
-        <ProductCard product={testProduct}></ProductCard>
+    if(loading){
+        return(
+            <div className="flex items-center justify-center text-2xl text-gray-700 ">Loading ...</div>
+        )
+    }
 
-    </div>
+    return (
+        <div className="container mx-auto p-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+                {products.map((product) => (
+                    <ProductCard 
+                        key={product.id} 
+                        product={product} 
+                    />
+                ))}
+
+            </div>
+        </div>
     );
 }

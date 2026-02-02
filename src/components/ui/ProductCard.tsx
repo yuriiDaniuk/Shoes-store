@@ -20,7 +20,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
     return (
         // --- MAIN CARD CONTAINER ---
-        <div className="flex flex-col h-120 w-70 bg-white">
+        <div className="flex flex-col h-120 w-70 bg-white border-gray-100 border shadow-lg">
 
             {/* --- TOP SECTION: IMAGE & WISHLIST --- */}
             <div className="relative mb-3 overflow-hidden">
@@ -39,7 +39,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
 
             {/* --- BOTTOM SECTION: INFO & ACTIONS --- */}
-            <div className="flex flex-col flex-grow px-2 pb-4">
+            <div className="flex flex-col grow px-2 pb-4">
 
                 {/* Category / Brand Name */}
                 <h4 className="mb-1 text-lg font-bold text-black capitalize">
@@ -47,7 +47,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 </h4>
 
                 {/* Product Title (Clamped to 2 lines) */}
-                <h3 className="h-10 mb-3 text-[20px] font-normal leading-snug text-gray-700 line-clamp-2">
+                <h3 className="h-10 mb-3 text-[20px] font-normal leading-snug text-gray-700 truncate">
                     {product.title}
                 </h3>
 
@@ -67,7 +67,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
                 {/* --- PRICE & BUY BUTTON ROW --- */}
                 {/* 'items-stretch' makes the button height equal to the price block */}
-                <div className='flex items-stretch items-end justify-between mt-auto'>
+                <div className='flex items-stretch justify-between mt-auto'>
                     
                     {/* Left Side: Pricing Info */}
                     <div>
@@ -90,7 +90,7 @@ export function ProductCard({ product }: ProductCardProps) {
                     {/* Right Side: Buy Button (Lime Green) */}
                     {/* Negative margins (-mr-2 -mb-4) pull the button to the very corner */}
                     <button 
-                        className="w-15 flex items-center justify-center bg-[#ccff00] hover:bg-[#d2fc18] hover:cursor-pointer transition-colors ml-2 -mr-2 -mb-4"
+                        className="w-15 flex items-center justify-center bg-[#CCFF00] hover:bg-[#b3e600] hover:cursor-pointer transition-colors ml-2 -mr-2 -mb-4"
                         onClick={handleAddToCart}
                     >
                         <ShoppingCart className="w-6 h-6 text-black" strokeWidth={1} />
