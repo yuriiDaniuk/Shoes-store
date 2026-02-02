@@ -10,10 +10,21 @@ interface CartState{
     items: CartItem[];
     totalPrice: number;
 }
-const initialState: CartState = {
-    items: [],
-    totalPrice: 0,
+
+function loadStateFromLocalStorage(): CartState {
+    try {
+        const serializedState = localStorage.getItem('cartState');
+        if (serializedState === null) {
+            return { items: [], totalPrice: 0 };
+        }
+        return JSON.parse(serializedState);
+    } catch (err) {
+        console.error("Could not load state from localStorage:", err);
+        return { items: [], totalPrice: 0 };
+    }
 }
+
+const initialState: CartState = loadStateFromLocalStorage();
 
 
 const cartSlice = createSlice({
