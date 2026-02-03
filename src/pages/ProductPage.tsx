@@ -5,6 +5,7 @@ import type { IProduct } from "../types/index";
 import { useAppDispatch } from "../store/hooks";
 import { addToCart } from "../store/slices/cartSlice"; 
 import { ArrowLeft, MessageSquare, Star } from "lucide-react";
+import toast from "react-hot-toast";
 
 export function ProductPage(){
     // --- HOOKS & STATE ---
@@ -19,6 +20,20 @@ export function ProductPage(){
     const handleAddToCart = () => {
         if(product){
             dispatch(addToCart(product)); 
+
+            toast.success(`${product.title} added to cart!`, {
+            id: 'add-to-cart-success',
+            duration: 2000,
+            position: 'top-center',
+            style: {
+                background: '#b3e600',
+                color: 'black',
+            },
+            iconTheme:{
+                primary: 'black',
+                secondary: 'white',
+            },
+            });
         }
     };
 
