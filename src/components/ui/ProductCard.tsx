@@ -27,7 +27,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 <div className="relative mb-3 overflow-hidden">
                     
                     {/* Wishlist Button (Heart) - Positioned absolutely to top-right */}
-                    <button className="absolute top-0 right-0 p-1 text-black transition-colors bg-white hover:cursor-pointer hover:text-white hover:bg-black">
+                    <button className="absolute top-0 right-0 z-10 p-1 text-black transition-colors bg-white hover:cursor-pointer hover:text-white hover:bg-black">
                         <Heart strokeWidth={1} className="w-7 h-7" />
                     </button>
                     
