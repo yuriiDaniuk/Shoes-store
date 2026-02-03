@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Home } from './pages/Home.tsx'
+import { Home } from './pages/HomePage.tsx'
 import { NavBar } from './components/layout/NavBar.tsx'
 import { CartPage } from './pages/CartPage.tsx'
 import { ProductPage } from './pages/ProductPage.tsx'
