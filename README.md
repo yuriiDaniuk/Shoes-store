@@ -4,8 +4,11 @@ A modern, fully responsive e-commerce web application built with React, TypeScri
 
 ## 📸 Screenshot
 
+- **Home page:**
 ![Home page](HomePage.png)
+- **Cart page:**
 ![Cart page](CartPage.png)
+- **Item page:**
 ![Item page](ItemPage.png)
 
 ## ✨ Features
