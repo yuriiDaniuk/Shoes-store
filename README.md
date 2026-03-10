@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# 🛒 React E-Commerce Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully responsive e-commerce web application built with React, TypeScript, and Redux Toolkit. This project simulates a real-world online store by fetching dynamic product data from the [FakeStore API](https://fakestoreapi.com/).
 
-Currently, two official plugins are available:
+## 📸 Screenshot
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Home page](HomePage.png)
+![Cart page](CartPage.png)
+![Item page](ItemPage.png)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Dynamic Product Catalog:** Fetches and displays products dynamically from an external REST API.
+- **Product Details Page:** Dedicated dynamic routes (`/product/:id`) for viewing specific product details, large images, and ratings.
+- **Advanced Shopping Cart:**
+  - Add and remove products.
+  - Increase or decrease item quantity.
+  - Automatic calculation of total items and total price.
+- **Data Persistence:** The shopping cart state is saved in `localStorage`, ensuring users don't lose their selected items after a page reload.
+- **Toast Notifications:** Beautiful visual feedback (`react-hot-toast`) when adding items to the cart.
+- **Responsive Design:** Mobile-first approach using Tailwind CSS (Grid, Flexbox) for a seamless experience on any device.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend:** React 19, TypeScript, Vite
+- **State Management:** Redux Toolkit (`useAppDispatch`, `useAppSelector`)
+- **Routing:** React Router v7
+- **Styling:** Tailwind CSS v4
+- **HTTP Client:** Axios
+- **Icons:** Lucide React
+- **Notifications:** React Hot Toast
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+To get a local copy up and running, follow these simple steps.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Prerequisites
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Installation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/yuriiDaniuk/Shoes-store.git](https://github.com/yuriiDaniuk/Shoes-store.git)
+
+2. Navigate to the project directory:
+   cd Shoes-store
+
+3. Install the dependencies:
+   npm install
+
+4. Start the development server:
+   npm run dev
